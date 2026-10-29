@@ -14,17 +14,17 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: pnpm
-      - name: Check NPM_TOKEN
+      - name: Check GH_PACKAGES_TOKEN
         run: |
           if [ -z "$NPM_TOKEN" ]; then
-            echo "::error::Secret NPM_TOKEN ausente. Crie em Settings > Secrets and variables > Actions."
+            echo "::error::Secret GH_PACKAGES_TOKEN ausente. Crie em Settings > Secrets and variables > Actions."
             exit 1
           fi
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
       - run: pnpm install --frozen-lockfile
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
       - run: pnpm typecheck
       - run: pnpm lint
       - run: pnpm test

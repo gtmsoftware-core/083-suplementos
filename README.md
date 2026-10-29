@@ -77,7 +77,7 @@ pelo `.npmrc`. O token nunca entra no repositório.
 
 - **Local:** `export NPM_TOKEN=<token>` no `~/.zshrc` (ou equivalente).
 - **Vercel:** variável `NPM_TOKEN` no projeto.
-- **CI:** secret de Actions `NPM_TOKEN` (de preferência na org, valendo para todos os sites).
+- **CI:** secret de Actions `GH_PACKAGES_TOKEN` (de preferência na org, valendo para todos os sites).
 - **Dependabot:** secret de Dependabot `GH_PACKAGES_TOKEN`, com o mesmo token.
 
 O Dependabot (`.github/dependabot.yml`) abre PRs semanais com novas versões do SDK.
