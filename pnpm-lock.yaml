@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@gtmsoftware-core/cms-sdk':
-        specifier: file:vendor/gtmsoftware-core-cms-sdk-0.3.0.tgz
-        version: file:vendor/gtmsoftware-core-cms-sdk-0.3.0.tgz(next@16.4.3(@babel/core@7.29.7)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))
+        specifier: ^0.3.0
+        version: 0.3.0(next@16.4.3(@babel/core@7.29.7)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))
       next:
         specifier: ^16.4.3
         version: 16.4.3(@babel/core@7.29.7)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -182,14 +182,10 @@ packages:
     resolution: {integrity: sha512-IkO+/KEUvwbVpiURZg+P7zF74z5Jxe0UgJxVni+RtoHQ6IZieXaO02kmadomap/q+l6bc/jdPGGqTjhuZnuz1Q==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@gtmsoftware-core/cms-sdk@file:vendor/gtmsoftware-core-cms-sdk-0.3.0.tgz':
-    resolution: {integrity: sha512-irKxCIw8HUe4oM2S1f7nWdiGjYCCP6a+Xc6KLjx94qTfKE9+71m5yxjSxLTiXCEV9V5abLWvI6IQ6Rg2m7HVEw==, tarball: file:vendor/gtmsoftware-core-cms-sdk-0.3.0.tgz}
-    version: 0.3.0
+  '@gtmsoftware-core/cms-sdk@0.3.0':
+    resolution: {integrity: sha512-y8jD4yxmb6+9ojewJsLaz0fSoyGhoW+kVnv0XIbVIKWRI/DpkxRVpic6xNceH29jDRSBreeaYJp6x9uco3eczA==, tarball: https://npm.pkg.github.com/download/@gtmsoftware-core/cms-sdk/0.3.0/e8182c2b6cf1b83a13959a2830af156522c4ace1}
     peerDependencies:
       next: '>=16'
-    peerDependenciesMeta:
-      next:
-        optional: true
 
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
@@ -2492,11 +2488,10 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@gtmsoftware-core/cms-sdk@file:vendor/gtmsoftware-core-cms-sdk-0.3.0.tgz(next@16.4.3(@babel/core@7.29.7)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))':
+  '@gtmsoftware-core/cms-sdk@0.3.0(next@16.4.3(@babel/core@7.29.7)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))':
     dependencies:
-      zod: 4.6.7
-    optionalDependencies:
       next: 16.4.3(@babel/core@7.29.7)(@types/node@24.19.2)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      zod: 4.6.7
 
   '@humanfs/core@0.19.2':
     dependencies:

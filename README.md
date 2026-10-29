@@ -71,15 +71,13 @@ Verificações: `pnpm typecheck && pnpm lint && pnpm test`.
 
 ## Instalando o SDK do GitHub Packages
 
-Enquanto o SDK não está publicado, ele vem de `vendor/gtmsoftware-core-cms-sdk-0.3.0.tgz`
-(gerado com `pnpm --filter @gtmsoftware-core/cms-sdk pack` no repositório do CMS).
+O SDK é publicado no GitHub Packages da org `gtmsoftware-core`. Esse registry exige token mesmo
+para pacote público: um PAT classic com escopo `read:packages`, lido da variável `NPM_TOKEN`
+pelo `.npmrc`. O token nunca entra no repositório.
 
-Depois da publicação, troque a dependência por `"@gtmsoftware-core/cms-sdk": "^0.3.0"`, apague `vendor/` e
-configure o token (escopo `read:packages`) fora do repositório:
+- **Local:** `export NPM_TOKEN=<token>` no `~/.zshrc` (ou equivalente).
+- **Vercel:** variável `NPM_TOKEN` no projeto.
+- **CI:** secret de Actions `NPM_TOKEN` (de preferência na org, valendo para todos os sites).
+- **Dependabot:** secret de Dependabot `GH_PACKAGES_TOKEN`, com o mesmo token.
 
-```bash
-pnpm config set //npm.pkg.github.com/:_authToken <token>
-```
-
-Na Vercel e no CI, use a variável `NODE_AUTH_TOKEN` com um `.npmrc` gerado no build. O Dependabot
-(`.github/dependabot.yml`) abre PRs semanais com novas versões do SDK.
+O Dependabot (`.github/dependabot.yml`) abre PRs semanais com novas versões do SDK.
