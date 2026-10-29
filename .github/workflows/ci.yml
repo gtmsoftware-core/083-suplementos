@@ -1,8 +1,3 @@
-        run: |
-          if [ -z "$NPM_TOKEN" ]; then
-            echo "::error::Secret NPM_TOKEN ausente: crie em Settings > Secrets and variables > Actions."
-            exit 1
-          fi
 name: CI
 
 on:
@@ -20,7 +15,11 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - name: Check NPM_TOKEN
-        run: test -n "$NPM_TOKEN" || { echo "::error::Secret NPM_TOKEN ausente: crie em Settings > Secrets and variables > Actions."; exit 1; }
+        run: |
+          if [ -z "$NPM_TOKEN" ]; then
+            echo "::error::Secret NPM_TOKEN ausente. Crie em Settings > Secrets and variables > Actions."
+            exit 1
+          fi
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: pnpm install --frozen-lockfile
