@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/*
+ * Dark theme of the landing page. The accent comes from "Cor principal" in the CMS settings
+ * (layout.tsx sets --color-primary); everything else is fixed here and can change per client repo.
+ */
+:root {
+  --color-primary: #3ce11e;
+}
+
+@theme inline {
+  --font-display: var(--font-anton), Impact, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --color-accent: var(--color-primary);
+  --color-ink: #0a0a0a;
+  --color-raised: #111111;
+  --color-panel: #141414;
+  --color-panel-soft: #1c1c1c;
+  --color-line: #262626;
+  --color-line-soft: #1f1f1f;
+  --color-fg: #f2f2f2;
+  --color-soft: #d4d4d4;
+  --color-body: #bdbdbd;
+  --color-muted: #a8a8a8;
+  --color-subtle: #8a8a8a;
+}
+
+/* Inside the base layer, so Tailwind color utilities on links still win. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-ink);
+    color: var(--color-fg);
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+.rich-text h2 { @apply mt-8 mb-3 font-display text-4xl uppercase; }
+.rich-text h3 { @apply mt-6 mb-2 text-xl font-bold; }
+.rich-text p { @apply my-3 text-lg leading-relaxed text-body; }
+.rich-text ul { @apply my-3 list-disc pl-6 text-body; }
+.rich-text ol { @apply my-3 list-decimal pl-6 text-body; }
+.rich-text blockquote { @apply my-4 border-l-4 border-accent pl-4 italic; }
+.rich-text a { @apply text-accent underline; }
