@@ -1,3 +1,8 @@
+        run: |
+          if [ -z "$NPM_TOKEN" ]; then
+            echo "::error::Secret NPM_TOKEN ausente: crie em Settings > Secrets and variables > Actions."
+            exit 1
+          fi
 name: CI
 
 on:
