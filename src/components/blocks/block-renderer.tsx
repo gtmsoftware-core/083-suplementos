@@ -1,18 +1,18 @@
-import type { Block, SiteSettings } from '@gtmsoftware-core/cms-sdk';
-import { anchorId } from '@/lib/links';
-import { AboutBlock } from './about-block';
-import { ContactBlock } from './contact-block';
-import { CtaBlock } from './cta-block';
-import { FaqBlock } from './faq-block';
-import { FeaturesBlock } from './features-block';
-import { GalleryBlock } from './gallery-block';
-import { HeroBlock } from './hero-block';
-import { NumberedCardsBlock } from './numbered-cards-block';
-import { ProductsBlock } from './products-block';
-import { RichTextBlock } from './rich-text-block';
-import { ServicesListBlock } from './services-list-block';
-import { StepsBlock } from './steps-block';
-import { TestimonialsBlock } from './testimonials-block';
+import { anchorId } from "@/lib/links";
+import type { Block, SiteSettings } from "@gtmsoftware-core/cms-sdk";
+import { AboutBlock } from "./about-block";
+import { ContactBlock } from "./contact-block";
+import { CtaBlock } from "./cta-block";
+import { FaqBlock } from "./faq-block";
+import { FeaturesBlock } from "./features-block";
+import { GalleryBlock } from "./gallery-block";
+import { HeroBlock } from "./hero-block";
+import { NumberedCardsBlock } from "./numbered-cards-block";
+import { ProductsBlock } from "./products-block";
+import { RichTextBlock } from "./rich-text-block";
+import { ServicesListBlock } from "./services-list-block";
+import { StepsBlock } from "./steps-block";
+import { TestimonialsBlock } from "./testimonials-block";
 
 type ViewProps = { block: Block; settings: SiteSettings | null };
 
@@ -22,31 +22,31 @@ type ViewProps = { block: Block; settings: SiteSettings | null };
  */
 function BlockView({ block, settings }: ViewProps) {
   switch (block.type) {
-    case 'hero':
+    case "hero":
       return <HeroBlock block={block} settings={settings} />;
-    case 'rich-text':
+    case "rich-text":
       return <RichTextBlock block={block} />;
-    case 'features':
+    case "features":
       return <FeaturesBlock block={block} />;
-    case 'numbered-cards':
+    case "numbered-cards":
       return <NumberedCardsBlock block={block} />;
-    case 'services-list':
+    case "services-list":
       return <ServicesListBlock block={block} />;
-    case 'products':
+    case "products":
       return <ProductsBlock block={block} settings={settings} />;
-    case 'steps':
+    case "steps":
       return <StepsBlock block={block} />;
-    case 'about':
+    case "about":
       return <AboutBlock block={block} settings={settings} />;
-    case 'gallery':
+    case "gallery":
       return <GalleryBlock block={block} />;
-    case 'testimonials':
+    case "testimonials":
       return <TestimonialsBlock block={block} />;
-    case 'faq':
+    case "faq":
       return <FaqBlock block={block} />;
-    case 'contact':
+    case "contact":
       return <ContactBlock block={block} settings={settings} />;
-    case 'cta':
+    case "cta":
       return <CtaBlock block={block} settings={settings} />;
     default:
       return assertNever(block);
@@ -58,7 +58,13 @@ function assertNever(block: never): never {
 }
 
 /** Blocks marked "Mostrar no menu" get an anchor the header links to. */
-export function BlockRenderer({ blocks, settings }: { blocks: readonly Block[]; settings: SiteSettings | null }) {
+export function BlockRenderer({
+  blocks,
+  settings,
+}: {
+  blocks: readonly Block[];
+  settings: SiteSettings | null;
+}) {
   return blocks.map((block) =>
     block.menuLabel ? (
       <div key={block.id} id={anchorId(block.menuLabel)} className="scroll-mt-6">
@@ -66,6 +72,6 @@ export function BlockRenderer({ blocks, settings }: { blocks: readonly Block[]; 
       </div>
     ) : (
       <BlockView key={block.id} block={block} settings={settings} />
-    ),
+    )
   );
 }
